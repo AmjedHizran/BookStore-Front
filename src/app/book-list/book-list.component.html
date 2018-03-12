@@ -1,0 +1,24 @@
+<h1 class="display-3"><u> BOOKS INFORMATION </u></h1>
+
+<table class="table table-striped table-dark">
+
+    <thead>
+        <td>Book Name</td>
+        <td>Num Of Page </td>
+        <td>Price</td>
+        <td>Author Name</td>
+        <td>Age </td>
+        <td>Image</td>
+
+
+        <tr *ngFor="let book of bookList">
+            <td> {{book.BookName}}</td>
+            <td> {{book.NumOfPages}}</td>
+            <td> {{book.Price}}</td>
+            <td>{{book.AuthorObj.Name}}</td>
+            <td>{{book.AuthorObj.Age}}</td>
+            <td class="pictures "><img [src]=" book.AuthorObj.Image " /></td>
+
+        </tr>
+    </thead>
+</table>

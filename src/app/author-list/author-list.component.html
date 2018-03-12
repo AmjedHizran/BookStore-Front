@@ -1,0 +1,22 @@
+<h1 class="display-3"><u> AUTHORS INFORMATION </u></h1>
+
+<table class="table table-striped table-dark">
+
+    <thead>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Image</td>
+
+        <tr *ngFor="let author of authorList">
+            <td>{{author.ID}}</td>
+            <td> {{author.Name}}</td>
+            <td> {{author.Age}}</td>
+
+            <td class="pictures "><img [src]=" author.Image " /></td>
+
+
+
+        </tr>
+    </thead>
+</table>

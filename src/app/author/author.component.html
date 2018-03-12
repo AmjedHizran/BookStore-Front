@@ -1,0 +1,92 @@
+<div id="formSearch" class="border border-dark">
+    <h1 class=" display-3 "><u> Search Author: </u> </h1>
+    <div class="input-group">
+        <input required pattern="[A-z]{1,20}" [(ngModel)]=" searchAuthorName " id="searchInput " type=" text " class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Name With Characters Only ..">
+        <span class="validity "></span>
+    </div>
+    <button *ngIf="searchAuthorName " (click)=" onSearchAuthor() " type=" button " class="btn btn-primary btn-lg btn-block ">Search</button>
+    <button (click)="onResetAuthor() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+<h1 class="alert " *ngIf="!author && showDetails ">
+    <div class="alert alert-danger ">
+        <strong>Author Not Found</strong>
+    </div>
+</h1>
+
+
+<div *ngIf="showDetails && author ">
+    <div class="border border-dark ">
+        <table class="table table-striped table-dark ">
+            <thead>
+                <td>Name</td>
+                <td>Age</td>
+                <td>Image</td>
+                <tr>
+                    <td> {{author.Name}}</td>
+                    <td> {{author.Age}}</td>
+                    <td class="pictures "><img [src]=" author.Image " /></td>
+                </tr>
+            </thead>
+        </table>
+
+        <em><h1 class="display-3 "><u>Update Author: </u> </h1></em>
+        <input [(ngModel)]=" updateAuthor.Name " required pattern="[A-z]{1,20}" id="name " type="text " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Name With Characters Only ..">
+        <input required pattern="[1-9]{1,3}" [(ngModel)]=" updateAuthor.Age " id="age " type="number " class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Age Between 18 And 120..">
+        <input [(ngModel)]=" updateAuthor.Image " required pattern="https?://.+" title="Include http://" id="image " type="text " class="form-control mb-2 mr-sm-0 mb-sm-2" placeholder="Enter A Picture Url..">
+        <button *ngIf="updateAuthor.Name && updateAuthor.Age" (click)="onEditAuthor() " type="button " class="btn btn-secondary btn-lg btn-block ">Update Author</button>
+        <button (click)="onResetAuthor() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+        <h1 class="alert ">
+            <div *ngIf="updateSuccess " class="alert alert-success ">
+                <strong>Update Done!!</strong>
+            </div>
+            <div *ngIf="!updateSuccess && isNotValid " class="alert alert-danger ">
+                <strong>The Author Name {{updateAuthor.Name}} Is Used , Please Enter Another Name</strong>
+            </div>
+        </h1>
+    </div>
+</div>
+
+
+<div class="border border-dark ">
+    <em><h1 class="display-3 "><u>Add New Author: </u> </h1></em>
+    <div class="input-group input-group ">
+        <input required pattern="[A-z]{1,20}" [(ngModel)]=" newAuthor.Name " type=" text " class="form-control mb-2 mr-sm-0 mb-sm-1 " placeholder="Enter Name With Characters Only .. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group input-group">
+        <input type="number" required pattern="[1-9]{1,3}" [(ngModel)]=" newAuthor.Age " class="form-control mb-2 mr-sm-0 mb-sm-1" placeholder="Enter Age Between 18 And 120.. ">
+        <span class="validity "></span>
+    </div>
+    <div class="input-group ">
+        <input required pattern="https?://.+" title="Include http://" [(ngModel)]=" newAuthor.Image " type="url" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter A Picture Url.. ">
+        <span class="validity "></span>
+    </div>
+    <button *ngIf="newAuthor.Name && newAuthor.Age" (click)=" onAddingAuthor() " type="button " class="btn btn-primary btn-lg btn-block ">Add Author</button>
+    <button (click)="onResetAuthor() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+<h1 class="alert ">
+    <div *ngIf="addedSuccess " class="alert alert-success ">
+        <strong>Added Success!!</strong>
+    </div>
+    <div *ngIf="!addedSuccess && isNotValid " class="alert alert-danger ">
+        <strong>Incorrect Input , Please Insert Only Characters</strong>
+    </div>
+</h1>
+
+
+
+<div id="delete " class="border border-dark ">
+    <em><h1 class="display-3 "><u>Delete Author: </u> </h1> </em>
+    <div class=" col-xs-2 ">
+        <div class="input-group input-group ">
+            <input required pattern="[1-9]{1,5}" [(ngModel)]="deleteAuthor" type="number" class="form-control mb-2 mr-sm-0 mb-sm-3" placeholder="Enter Author ID.. ">
+            <span class="validity "></span>
+        </div>
+        <button *ngIf="deleteAuthor " type="button " class="btn btn-danger btn-lg btn-block " (click)="onDeleteAuthor() ">Delete Author</button>
+    </div>
+</div>
+<h1 class="alert " *ngIf="deleteSuccess ">
+    <div class="alert alert-danger ">
+        <strong>Delete Done!!</strong>
+    </div>
+</h1>

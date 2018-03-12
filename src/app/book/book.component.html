@@ -1,0 +1,90 @@
+<div id="formSearch" class="border border-dark">
+    <h1 class="display-3"><u> Search Book: </u> </h1>
+    <div class="input-group input-group-lg ">
+        <input [(ngModel)]="searchBookName" id="searchInput " type=" text " class="form-control   " placeholder="Insert Book Name.... ">
+    </div>
+    <button (click)="onSearchBook()" type=" button " class="btn btn-primary btn-lg btn-block ">Search</button>
+    <button (click)="onResetBook() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+
+<div *ngIf="showDetails">
+    <h1 class="alert " *ngIf="book==False">
+        <div class="alert alert-danger ">
+            <strong>Book Not Found</strong>
+        </div>
+    </h1>
+    <div *ngIf="book" class="border border-dark">
+        <table class="table table-striped table-dark">
+
+            <thead>
+                <td>Book Name</td>
+                <td>Num Of Page </td>
+                <td>Price</td>
+                <td>Author Name</td>
+                <td>Age </td>
+                <td>Image</td>
+
+
+                <tr>
+                    <td> {{book.BookName}}</td>
+                    <td> {{book.NumOfPages}}</td>
+                    <td> {{book.Price}}</td>
+                    <td>{{book.AuthorObj.Name}}</td>
+                    <td>{{book.AuthorObj.Age}}</td>
+                    <td class="pictures "><img [src]=" book.AuthorObj.Image " /></td>
+                </tr>
+
+            </thead>
+        </table>
+        <em><h1 class="display-3 "><u>Update Book: </u> </h1></em>
+
+        <input [(ngModel)]="updateBook.BookName " id="name " type="text " class="form-control " placeholder="Insert Name.. ">
+        <input [(ngModel)]="updateBook.NumOfPages " id="NumOfPages " type="text " class="form-control " placeholder="Insert Number Of Pages.. ">
+        <input [(ngModel)]="updateBook.Price " id="Price " type="text " class="form-control " placeholder="Insert Price.. ">
+        <input [(ngModel)]="updateBook.AuthorObj.Name " type="text " class="form-control " placeholder="Author Name.. ">
+        <input [(ngModel)]="updateBook.AuthorObj.Age " type="text " class="form-control " placeholder="Author Age.. ">
+        <input [(ngModel)]="updateBook.AuthorObj.Image " type="text " class="form-control " placeholder="Author Image.. ">
+        <button (click)="onEditBook() " type="button " class="btn btn-secondary btn-lg btn-block ">Update Book</button>
+        <button (click)="onResetBook() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+        <button (click)="onClean() " type="button " class="btn btn-secondary btn-lg btn-block ">Clean All</button>
+        <h1 class="alert " *ngIf="updateSuccess ">
+            <div class="alert alert-success ">
+                <strong>Update Done!!</strong>
+            </div>
+        </h1>
+    </div>
+</div>
+
+<div id="formadd " class="border border-dark ">
+    <em><h1 class="display-3 "><u>Add New Book: </u> </h1></em>
+    <div class="input-group input-group-lg ">
+        <input [(ngModel)]="newBook.BookName " type=" text " class="form-control " placeholder="Name.. ">
+        <input [(ngModel)]="newBook.NumOfPages " type="text " class="form-control " placeholder="Num Of Pages.. ">
+        <input [(ngModel)]="newBook.Price " type="text " class="form-control " placeholder="Price.. ">
+        <input [(ngModel)]="newBook.AuthorObj.Name " type="text " class="form-control " placeholder="Author Name.. ">
+        <input [(ngModel)]="newBook.AuthorObj.Age " type="text " class="form-control " placeholder="Author Age.. ">
+        <input [(ngModel)]="newBook.AuthorObj.Image " type="text " class="form-control " placeholder="Author Image.. ">
+    </div>
+    <button (click)="onAddingBook()" type="button " class="btn btn-primary btn-lg btn-block ">Add Book</button>
+    <button (click)="onResetBook() " type="button " class="btn btn-secondary btn-lg btn-block ">Reset Form</button>
+</div>
+<h1 class="alert " *ngIf="addedSuccess">
+    <div class="alert alert-success">
+        <strong>Added Success!!</strong>
+    </div>
+</h1>
+
+<div id="delete " class="border border-dark ">
+    <em><h1 class="display-3 "><u>Delete Book: </u> </h1> </em>
+    <div class=" col-xs-2 ">
+        <div class="input-group input-group-lg ">
+            <input [(ngModel)]="deleteBookName " id="name " type=" text " class=" form-control " aria-label="Large " aria-describedby="inputGroup-sizing-sm " placeholder="Insert Name.. ">
+        </div>
+        <button type="button " class="btn btn-danger btn-lg btn-block " (click)="onDeleteBook() ">Delete</button>
+    </div>
+</div>
+<h1 class="alert " *ngIf="deleteSuccess ">
+    <div class="alert alert-danger ">
+        <strong>Delete Done!!</strong>
+    </div>
+</h1>
