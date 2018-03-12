@@ -1,0 +1,9 @@
+p {
+    margin-top: 100%;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: white;
+}

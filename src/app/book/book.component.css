@@ -1,0 +1,36 @@
+.border {
+    width: 70%;
+    height: 200px auto;
+    background: rgb(61, 61, 61);
+    margin: 100px auto;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    box-shadow: 15px 15px 30px rgb(71, 71, 71);
+    text-shadow: 5px 5px 5px rgb(59, 1, 1);
+    right: 10px;
+    left: auto;
+    transform: skew(0deg) rotate(0deg);
+    border-radius: 5px 50px;
+}
+
+input:enabled {
+    border-color: black;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 5px 5px 5px rgb(187, 187, 187);
+    margin: 40px auto;
+}
+
+.results {
+    margin: 300px auto;
+}
+
+H1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+button {
+    font-size: 30px;
+}
